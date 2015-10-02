@@ -1,0 +1,19 @@
+<md-content layout-padding>
+    <section layout="row">
+        <input type="file" fileread="options.fileData">
+    </section>
+    <section layout="row" layout-align="center center">
+        <md-button class="md-fab md-primary" aria-label="play/pause" ng-click="player.playing ? pause() : play()">
+            <md-icon ng-show="!player.playing"  md-font-icon="mdi mdi-play" ng-style="{'font-size': '40px', height: '40px'}"></md-icon>
+            <md-icon ng-show="player.playing" md-font-icon="mdi mdi-pause" ng-style="{'font-size': '40px', height: '40px'}"></md-icon>
+        </md-button>
+        <md-button class="md-fab md-mini md-primary" aria-label="stop"  ng-click="stop()">
+            <md-icon md-font-icon="mdi mdi-stop" ng-style="{'font-size': '30px', height: '30px'}"></md-icon>
+        </md-button>
+        <md-button class="md-fab md-mini md-raised" aria-label="replay" ng-click="options.repeat = !options.repeat" ng-class="{'md-primary': options.repeat}">
+            <md-icon md-font-icon="mdi mdi-repeat" ng-style="{'font-size': '30px', height: '30px'}"></md-icon>
+        </md-button>
+        <md-slider flex="" min="0" max="{{options.endTime}}" aria-label="seek" ng-change="seek()" ng-model="options.currentTime">
+        </md-slider>
+    </section>
+</md-content>

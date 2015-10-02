@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/bower_components/mdi/css/materialdesignicons.css">
+</head>
+<body>
+    <div ng-controller="mainController">
+
+        <md-input-container>
+            <label>Beats per minute</label>
+            <md-select aria-label="select speed" ng-model="options.bpm">
+                <md-option ng-value="speed" ng-repeat="speed in options.speedOptions">{{speed}}</md-option>
+            </md-select>
+        </md-input-container>
+
+        <h1 class="md-title">Midi recorder</h1>
+        <midi-recorder output="midiFile" bpm="options.bpm"></midi-recorder>
+        <br>
+        <h1 class="md-title">Midi player</h1>
+        <midi-player input="midiFile" bpm="options.bpm"></midi-player>
+    </div>
+
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
+
+    <script src="/bower_components/midi/build/MIDI.js"></script>
+    <script src="/bower_components/midi/inc/shim/Base64.js"></script>
+    <script src="/bower_components/midi/inc/shim/Base64binary.js"></script>
+    <script src="/bower_components/midi/inc/jasmid/midifile.js"></script>
+    <script src="/bower_components/midi/inc/jasmid/replayer.js"></script>
+    <script src="/bower_components/midi/inc/jasmid/stream.js"></script>
+    <script src="/bower_components/lodash/lodash.min.js"></script>
+    <script src="/bower_components/jsmidgen/lib/jsmidgen.js"></script>
+    <script src="/node_modules/humanize-midimessage/dist/humanizeMidiMessage.js"></script>
+
+    <script src="/js/midi-recorder.js"></script>
+    <script src="/js/midi-recorder-angular.js"></script>
+
+    <script src="/app/common/helpers.js"></script>
+
+    <script src="/app/midi/MidiRecorder.js"></script>
+    <script src="/app/midi/MidiPlayer.js"></script>
+    <script src="/app/app.js"></script>
+</body>
+</html>

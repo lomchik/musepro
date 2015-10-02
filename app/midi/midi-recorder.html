@@ -1,0 +1,12 @@
+<div layout="row">
+    <md-input-container>
+        <label>Input device</label>
+        <md-select aria-label="select device" ng-model="selectedInputId">
+            <md-option ng-value="input.id" ng-repeat="input in devices">{{input.name}}</md-option>
+        </md-select>
+    </md-input-container>
+    <md-button aria-label="record/stop" class="md-fab md-primary" ng-click="midiRecorder.status == 'recording' ? stopRecording() : midiRecorder.record()">
+        <md-icon ng-show="midiRecorder.status == 'recording'"  md-font-icon="mdi mdi-stop" ng-style="{'font-size': '40px', height: '40px'}"></md-icon>
+        <md-icon ng-show="midiRecorder.status != 'recording'" md-font-icon="mdi mdi-checkbox-blank-circle" ng-style="{'font-size': '30px', height: '32px', color: 'red'}"></md-icon>
+    </md-button>
+</div>
